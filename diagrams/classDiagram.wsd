@@ -1,0 +1,42 @@
+@startuml
+Sala <|-- SalaCerrada
+Sala <|-- Anfiteatro
+Entrada o-- Usuario
+Entrada o-- Espectaculo
+Espectaculo o-- Sala
+
+class Usuario {
+  user : String
+  nombre : String
+  email : String
+  password : String
+}
+
+class Espectaculo {
+   artista : Artista
+   fecha : Date
+   duracionMinutos : Integer
+   tipoShow : String 
+   precioEntrada : float
+   sala : Sala
+}
+
+class Sala{
+  nombre : String 
+  capacidad: Integer
+  {abstract} float calcularPrecio(String TipoEntrada)
+}
+class SalaCerrada {
+  float calcularPrecio(String tipoEntrada)
+}
+class Anfiteatro{
+  float calcularPrecio(String tipoEntrada)
+}
+class Entrada{
+  tipo : String
+  precio : float
+  usuario : Usuario
+  espectaculo : Espectaculo
+}
+
+@enduml
