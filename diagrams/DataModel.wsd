@@ -1,0 +1,53 @@
+@startuml
+Entrada "0..*" --> "1" Usuario : compra
+Entrada "0..*" --> "1" Espectaculo : vende
+Artista "1"--> "0..*" Espectaculo_Artista : actua
+Espectaculo "1"--> "0..*" Espectaculo_Artista : tiene
+Sala "1" --> "0..*" Espectaculo : aloja
+TipoShow "1" --> "0..*" Espectaculo : tiene
+
+class Usuario {
+  id_usuario : int
+  usuario : String
+  nombre : String
+  email : String
+  password : String
+}
+
+class Espectaculo {
+    id_espectaculo : int 
+    fecha : DateTime
+    duracion_Minutos : Integer
+    id_tipo_show : int 
+    precio_base_entrada : float
+    id_sala : int
+}
+class TipoShow {
+    id_tipoShow : int
+    nombre : String
+    descripcion : String
+}
+class Sala{
+    id_sala : int
+    nombre : String 
+    capacidad: Integer
+    tipo_sala: String
+}
+class Entrada{
+    id_entrada: int
+    tipo : String
+    precio : float
+    id_usuario : int
+    id_espectaculo : int
+}
+class Artista{
+    id_artista : int
+    nombre : String
+    nacionalidad : String
+}
+class Espectaculo_Artista {
+    id_espectaculo : int
+    id_artista : int
+}
+
+@enduml

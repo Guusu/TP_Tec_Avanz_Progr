@@ -4,6 +4,8 @@ Sala <|-- Anfiteatro
 Entrada o-- Usuario
 Entrada o-- Espectaculo
 Espectaculo o-- Sala
+Espectaculo o-- Artista
+Espectaculo o-- TipoShow
 
 class Usuario {
   user : String
@@ -13,24 +15,35 @@ class Usuario {
 }
 
 class Espectaculo {
-   artista : Artista
-   fecha : Date
+   artista : List<Artista>
+   fecha : DateTime
    duracionMinutos : Integer
-   tipoShow : String 
-   precioEntrada : float
+   tipoShow : TipoShow 
+   precioBaseEntrada : float
    sala : Sala
+}
+class TipoShow {
+    nombre : String
+    descripcion : String
+}
+
+class Artista{
+    nombre : String
+    nacionalidad : String
 }
 
 class Sala{
-  nombre : String 
-  capacidad: Integer
-  {abstract} float calcularPrecio(String TipoEntrada)
+    nombre : String 
+    capacidad: Integer
+    tipoSala: String
+  espectaculos : List<Espectaculo>
+  {abstract} float calcularPrecio(String TipoEntrada, float precioBaseEntrada)
 }
 class SalaCerrada {
-  float calcularPrecio(String tipoEntrada)
+  float calcularPrecio(String tipoEntrada, float precioBaseEntrada)
 }
 class Anfiteatro{
-  float calcularPrecio(String tipoEntrada)
+  float calcularPrecio(String tipoEntrada, float precioBaseEntrada)
 }
 class Entrada{
   tipo : String
