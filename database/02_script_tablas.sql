@@ -36,7 +36,8 @@ CREATE TABLE artistas
 
 CREATE TABLE espectaculos
 (
-    id_espectaculo int,
+    id_espectaculo int,    
+    nombre varchar(100),
     fecha DateTime,
     duracion_minutos int,
     id_tipo_show int,
