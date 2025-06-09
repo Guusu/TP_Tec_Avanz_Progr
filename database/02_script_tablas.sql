@@ -36,7 +36,7 @@ CREATE TABLE artistas
 
 CREATE TABLE espectaculos
 (
-    id_espectaculo int,    
+    id_espectaculo INT NOT NULL AUTO_INCREMENT,    
     nombre varchar(100),
     fecha DateTime,
     duracion_minutos int,
@@ -59,7 +59,7 @@ create table espectaculo_artista
 
 create table entradas 
 (
-    id_entrada int,
+    id_entrada INT NOT NULL AUTO_INCREMENT,
     tipo varchar(50),
     precio decimal(10,2),
     id_usuario int,
